@@ -7,3 +7,7 @@ th {
     background-color: lightgrey;
     border: solid black;
 }
+
+.grey {
+    background-color: grey;
+}
