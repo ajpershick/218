@@ -1,12 +1,10 @@
+boxes = document.getElementById('table1').getElementsByTagName('td');
 
-boxes = document.getElementsByTagName('td');
-
-for (var i = 0; i < boxes.length; i++)
-{
-    console.log('hi');
-    boxes[i].addEventListener("click", function()
-    {
+for (var i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener("click", function() {
         this.style.backgroundColor = "grey";
     });
 }
+
+
 

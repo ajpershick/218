@@ -1,6 +1,7 @@
 td {
     background-color: lightgrey;
     border: solid black;
+    margin: 0px;
 }
 
 th {
@@ -8,6 +9,23 @@ th {
     border: solid black;
 }
 
+tr {
+    margin: 0px;
+}
+
 .grey {
     background-color: grey;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+#table1 {
+    float:left;
+    margin-right: 5px;
+}
+
+#table1 td {
+
 }
