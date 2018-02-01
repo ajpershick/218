@@ -1,12 +1,12 @@
 td {
     background-color: lightgrey;
-    border: solid black;
+    border: thin solid black;
     margin: 0px;
 }
 
 th {
     background-color: lightgrey;
-    border: solid black;
+    border: thin solid black;
 }
 
 tr {
