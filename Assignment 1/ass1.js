@@ -1,10 +1,41 @@
-table1 = document.getElementById('table1').getElementsByTagName('td');
+table1 = document.getElementById('table1');
+table2 = document.getElementById('table2');
+var table1Boxes = document.getElementById('table1').getElementsByTagName('td');
+var table2Boxes = document.getElementById('table2').getElementsByTagName('td');
+var cheat = document.getElementById('cheat');
 
-for (var i = 0; i < table1.length; i++) {
-    table1[i].addEventListener("click", function() {
+//var counter = new Array(table1BoxesBoxes.length).fill(0);
+
+for (var i = 0; i < table1Boxes.length; i++) {
+    table1Boxes[i].addEventListener("click", function() {
         this.classList.toggle("grey");
     });
 }
+
+function showSolutionTable() {
+    for (var j = 0; j < table1Boxes.length; j++) {
+        console.log('j=', j, table1Boxes[j], table2Boxes[j]);
+        if ((table1Boxes[j].classList.value === 'grey' && table2Boxes[j].classList.value !== 'grey') || table1Boxes[j].classList.value !== 'grey' && table2Boxes[j].classList.value === 'grey') {
+            return alert('Try again.');
+        }
+    }
+    alert('Nice job!');
+    if ((table2.style.display === 'none' || table2.style.display === '') ){
+        table2.style.display = 'block';
+    }
+    else {
+        table2.style.display = 'none';
+    }
+
+
+}
+
+cheat.addEventListener("click", function() {
+    showSolutionTable();
+});
+
+
+
 
 
 /* Dynamic tables

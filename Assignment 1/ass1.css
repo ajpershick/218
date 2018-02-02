@@ -29,3 +29,15 @@ table {
 #table1 td {
 
 }
+
+#table2 {
+    display: none;
+}
+
+.showTable {
+    display: block;
+}
+
+button #cheat {
+    float: left;
+}
