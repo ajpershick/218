@@ -22,8 +22,10 @@ table {
 }
 
 #table1 {
-    float:left;
     margin-right: 5px;
+    float: left;
+    width: 40%;
+    height: 40%;
 }
 
 #table1 td {
@@ -32,12 +34,26 @@ table {
 
 #table2 {
     display: none;
-}
-
-.showTable {
-    display: block;
-}
-
-button #cheat {
     float: left;
+    width: 40%;
+    height: 40%;
+}
+
+#buttons {
+    position: fixed;
+    top: 50%;
+    text-align: center;
+}
+
+p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: x-large;
+    font-style: oblique;
+}
+
+#tables {
+    display: block;
+    width: 98%;
 }

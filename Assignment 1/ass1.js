@@ -2,6 +2,8 @@ table1 = document.getElementById('table1');
 table2 = document.getElementById('table2');
 var table1Boxes = document.getElementById('table1').getElementsByTagName('td');
 var table2Boxes = document.getElementById('table2').getElementsByTagName('td');
+var submit = document.getElementById('submit');
+var reset = document.getElementById('reset');
 var cheat = document.getElementById('cheat');
 
 //var counter = new Array(table1BoxesBoxes.length).fill(0);
@@ -20,20 +22,39 @@ function showSolutionTable() {
         }
     }
     alert('Nice job!');
+    showTable();
+    var congrats = document.createElement('P');
+    var text = document.createTextNode("gg");
+    congrats.appendChild(text);
+    document.body.appendChild(congrats);
+}
+
+submit.addEventListener("click", function() {
+    showSolutionTable();
+});
+
+function resetTable() {
+    for (var k = 0; k < table1Boxes.length; k++) {
+        table1Boxes[k].classList.value = '';
+    }
+}
+
+reset.addEventListener("click", function() {
+    resetTable();
+});
+
+function showTable() {
     if ((table2.style.display === 'none' || table2.style.display === '') ){
-        table2.style.display = 'block';
+        table2.style.display = 'table';
     }
     else {
         table2.style.display = 'none';
     }
-
-
 }
 
 cheat.addEventListener("click", function() {
-    showSolutionTable();
+    showTable();
 });
-
 
 
 
