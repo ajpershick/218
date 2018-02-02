@@ -6,8 +6,7 @@ var submit = document.getElementById('submit');
 var reset = document.getElementById('reset');
 var cheat = document.getElementById('cheat');
 
-//var counter = new Array(table1BoxesBoxes.length).fill(0);
-
+//
 for (var i = 0; i < table1Boxes.length; i++) {
     table1Boxes[i].addEventListener("click", function() {
         this.classList.toggle("grey");
@@ -55,9 +54,6 @@ function showTable() {
 cheat.addEventListener("click", function() {
     showTable();
 });
-
-
-
 
 /* Dynamic tables
 

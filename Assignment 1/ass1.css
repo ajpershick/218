@@ -22,10 +22,10 @@ table {
 }
 
 #table1 {
-    margin-right: 5px;
+    margin-right: 2%;
     float: left;
-    width: 40%;
-    height: 40%;
+    width: 49%;
+    height: 50%;
 }
 
 #table1 td {
@@ -35,14 +35,13 @@ table {
 #table2 {
     display: none;
     float: left;
-    width: 40%;
-    height: 40%;
+    width: 49%;
+    height: 50%;
 }
 
 #buttons {
     position: fixed;
-    top: 50%;
-    text-align: center;
+    top: 55%;
 }
 
 p {
@@ -51,9 +50,11 @@ p {
     left: 50%;
     font-size: x-large;
     font-style: oblique;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
 }
 
 #tables {
     display: block;
-    width: 98%;
+    width: 100%;
 }
+
