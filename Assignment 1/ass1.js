@@ -6,10 +6,26 @@ var submit = document.getElementById('submit');
 var reset = document.getElementById('reset');
 var cheat = document.getElementById('cheat');
 
+var mouseDown = 0;
+document.body.onmousedown = function() {
+    ++mouseDown;
+}
+document.body.onmouseup = function() {
+    --mouseDown;
+}
+
 //
 for (var i = 0; i < table1Boxes.length; i++) {
-    table1Boxes[i].addEventListener("click", function() {
-        this.classList.toggle("grey");
+    table1Boxes[i].addEventListener("mouseover", function() {
+        if (mouseDown){
+            this.classList.toggle("grey");
+        }
+    });
+}
+
+for (var i = 0; i < table1Boxes.length; i++) {
+    table1Boxes[i].addEventListener("mousedown", function() {
+            this.classList.toggle("grey");
     });
 }
 
