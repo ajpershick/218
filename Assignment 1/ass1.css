@@ -4,6 +4,10 @@ td {
     margin: 0px;
 }
 
+td:hover {
+    background-color: white;
+}
+
 th {
     background-color: lightgrey;
     border: thin solid black;
@@ -19,6 +23,7 @@ tr {
 
 table {
     border-collapse: collapse;
+    height: 50%;
 }
 
 #table1 {
@@ -26,10 +31,6 @@ table {
     float: left;
     width: 49%;
     height: 50%;
-}
-
-#table1 td {
-
 }
 
 #table2 {
@@ -42,6 +43,7 @@ table {
 #buttons {
     position: fixed;
     top: 55%;
+    left: 10%;
 }
 
 p {
@@ -50,11 +52,46 @@ p {
     left: 50%;
     font-size: x-large;
     font-style: oblique;
-    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
 }
 
 #tables {
     display: block;
     width: 100%;
 }
+
+table {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+button {
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    text-shadow: 2px 2px black;
+    border-color: black;
+    border-radius: 10px;
+}
+
+#cheat {
+    background-color: red;
+}
+
+#reset {
+    background-color: blue;
+}
+
+#submit {
+    background-color: limegreen;
+}
+
+
 

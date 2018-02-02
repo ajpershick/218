@@ -1,17 +1,17 @@
 table1 = document.getElementById('table1');
 table2 = document.getElementById('table2');
-var table1Boxes = document.getElementById('table1').getElementsByTagName('td');
-var table2Boxes = document.getElementById('table2').getElementsByTagName('td');
+var table1Boxes = table1.getElementsByTagName('td');
+var table2Boxes = table2.getElementsByTagName('td');
 var submit = document.getElementById('submit');
 var reset = document.getElementById('reset');
 var cheat = document.getElementById('cheat');
 
-var mouseDown = 0;
-document.body.onmousedown = function() {
-    ++mouseDown;
+var mouseDown = false;
+document.onmousedown = function() {
+    mouseDown = true;
 }
-document.body.onmouseup = function() {
-    --mouseDown;
+document.onmouseup = function() {
+    mouseDown = false;
 }
 
 //
