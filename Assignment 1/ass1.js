@@ -9,10 +9,10 @@ var cheat = document.getElementById('cheat');
 var mouseDown = false;
 document.onmousedown = function() {
     mouseDown = true;
-}
+};
 document.onmouseup = function() {
     mouseDown = false;
-}
+};
 
 //
 for (var i = 0; i < table1Boxes.length; i++) {
@@ -23,7 +23,7 @@ for (var i = 0; i < table1Boxes.length; i++) {
     });
 }
 
-for (var i = 0; i < table1Boxes.length; i++) {
+for (i = 0; i < table1Boxes.length; i++) {
     table1Boxes[i].addEventListener("mousedown", function() {
             this.classList.toggle("grey");
     });
