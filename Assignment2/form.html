@@ -6,8 +6,33 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
-<title>Form</title>
+<title>Sign up</title>
 <body>
-    <p>sup</p>
+    <form id="user1" action="POST" >
+        <h1>Sign Up</h1>
+        <p>Fill in the form to create an account!</p>
+
+        <hr>
+
+        <label for="fname">First Name</label>
+        <input type="text" placeholder="Enter your first name here" name="fname" required>
+
+        <label for="lname">Last Name</label>
+        <input type="text" placeholder="Enter your last name here" name="lname" required>
+
+        <label for="email">Email</label>
+        <input type="email" placeholder="Enter your email here" name="email" required>
+
+        <label for="email2">Alternate Emails (optional)</label>
+        <input type="email" placeholder="Enter your alternate emails here" name="email2">
+
+        <label for="bday">Birthday</label>
+        <input type="date" placeholder="Enter your birthday here" name="bday" required>
+
+        <button id="add">Add another user</button>
+        <button id="submit" type="submit">Submit</button>
+
+
+    </form>
 </body>
 </html>
