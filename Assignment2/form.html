@@ -8,7 +8,7 @@
 </head>
 <title>Sign up</title>
 <body>
-    <form id="user1" action="POST" >
+    <form id="form" action="POST" >
         <h1>Sign Up</h1>
         <p>Fill in the form to create an account!</p>
 
@@ -21,18 +21,21 @@
         <input type="text" placeholder="Enter your last name here" name="lname" required>
 
         <label for="email">Email</label>
-        <input type="email" placeholder="Enter your email here" name="email" required>
+        <input id="email" type="email" placeholder="Enter your email here" name="email" required>
 
-        <label for="email2">Alternate Emails (optional)</label>
-        <input type="email" placeholder="Enter your alternate emails here" name="email2">
+        <button type="button" id="addEmailButton">Add Another Email</button>
+
+        <!--<label for="email2">Alternate Emails (optional)</label>-->
+        <!--<input type="email" placeholder="Enter your alternate emails here" name="email2">-->
 
         <label for="bday">Birthday</label>
         <input type="date" placeholder="Enter your birthday here" name="bday" required>
 
-        <button id="add">Add another user</button>
+        <button id="addUserButton" type="button">Add Another User</button>
         <button id="submit" type="submit">Submit</button>
 
 
     </form>
+    <script type="text/javascript" src="./form.js"></script>
 </body>
 </html>
