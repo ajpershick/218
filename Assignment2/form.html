@@ -1,41 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./form.css">
 </head>
 <title>Sign up</title>
 <body>
-    <form id="form" action="POST" >
-        <h1>Sign Up</h1>
-        <p>Fill in the form to create an account!</p>
+    <h1>Sign Up</h1>
+    <p>Fill in the form to create an account!</p>
+    <ul>Usability features:
+        <li>Form Validation: alerts user when they need to fill out stuff, or have invalid email format</li>
+        <li>Calendar picker: lets users select their birthday from a nice calendar widget</li>
+        <li>Beautiful css style: hover over buttons, card-style forms with shadow</li>
+    </ul>
+    <button id="addUserButton" type="button">ADD USER</button>
+    <form id='forms' method='POST' >
+    <button id="submit" type="submit">SUBMIT</button>
+        <div id='form1' class="forms">
+            <label for="fname">First Name</label>
+            <input type="text" placeholder="Enter your first name here" name="fname" required>
 
-        <hr>
+            <label for="lname">Last Name</label>
+            <input type="text" placeholder="Enter your last name here" name="lname" required>
 
-        <label for="fname">First Name</label>
-        <input type="text" placeholder="Enter your first name here" name="fname" required>
-
-        <label for="lname">Last Name</label>
-        <input type="text" placeholder="Enter your last name here" name="lname" required>
-
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="Enter your email here" name="email" required>
-
-        <button type="button" id="addEmailButton">Add Another Email</button>
-
-        <!--<label for="email2">Alternate Emails (optional)</label>-->
-        <!--<input type="email" placeholder="Enter your alternate emails here" name="email2">-->
-
-        <label for="bday">Birthday</label>
-        <input type="date" placeholder="Enter your birthday here" name="bday" required>
-
-        <button id="addUserButton" type="button">Add Another User</button>
-        <button id="submit" type="submit">Submit</button>
-
-
+            <div id="emails1">
+            <label for="email">Email</label>
+            <input id="email1" class='email' type="email" placeholder="Enter your email here" name="email" required>
+            </div>
+            <button type="button" id="addEmailButton">ADD EMAIL</button>
+            <br>
+            <label for="bday">Birthday</label>
+            <input type="date" placeholder="Enter your birthday here" name="bday" required>
+            <br>
+        </div>
     </form>
-    <script type="text/javascript" src="./form.js"></script>
+<script type="text/javascript" src="./form.js"></script>
 </body>
 </html>
