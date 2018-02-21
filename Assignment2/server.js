@@ -4,10 +4,8 @@ var path = require('path');
 var url = require('url');
 var qs = require('querystring');
 var arr = [];
-
 var server = http.createServer();
 server.on('request', function(req,res) {
-
     console.log('request:', req.url);
     if (req.method === 'GET') {
 

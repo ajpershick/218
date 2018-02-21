@@ -8,9 +8,7 @@ var forms = document.getElementById('forms');
 var count = 2;
 //var emailDiv = document.getElementById('emails1');
 var blankForm = form.cloneNode(true);
-
 function addEmail() {
-
     if (count > 0) {
         var userEmail = this.parentElement.email;
         var emailDiv = this.parentElement.getElementsByTagName('div')[0];
