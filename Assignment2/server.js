@@ -65,7 +65,7 @@ server.on('request', function(req,res) {
         var body ='';
         req.on('data', function(data){
             body += data.toString();
-            res.redirect('/UserHomePage');
+           // res.redirect('/UserHomePage');
             res.end();
         });
         req.on('end', function(){
