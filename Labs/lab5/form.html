@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./form.css">
+</head>
+<title>Form</title>
+<body>
+<h1>Register User</h1>
+
+<form id='forms' method='POST' >
+    <div id='form1' class="forms">
+        <label for="user">User:</label>
+        <input type="text" placeholder="Enter your name here" name="name" required>
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Enter your password here" name="password" required>
+
+        <label for="bday">B-Day</label>
+        <input type="date" placeholder="Enter your birthday here" name="bday" required>
+
+    </div>
+    <button id="addUserButton" type="button">ADD</button>
+
+</form>
+<script type="text/javascript" src="./form.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</body>
+</html>
