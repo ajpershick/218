@@ -6,10 +6,10 @@ const serverIndex = require('serve-index');
 const http = require('http');
 const path = require('path');
 
-var port = process.env.PORT || 3000;
-var users = [];
+const port = process.env.PORT || 3000;
+const users = [];
 
-var options = {
+const options = {
     dotfiles: 'ignore',
     etag: false,
     extensions: ['htm','html'],
