@@ -1,9 +1,10 @@
 // users-api
 
-var express = require('express');
-var app = express();
-var serverIndex = require('serve-index');
-var http = require('http');
+const express = require('express');
+const app = express();
+const serverIndex = require('serve-index');
+const http = require('http');
+const path = require('path');
 
 var port = process.env.PORT || 3000;
 var users = [];
@@ -12,7 +13,7 @@ var options = {
     dotfiles: 'ignore',
     etag: false,
     extensions: ['htm','html'],
-    index: "start.html"
+    index: "form.html"
 };
 
 app.use('/', function(req,res,next){
@@ -28,9 +29,19 @@ app.use('/', function(req,res,next){
 app.use('/', express.static('./pub_html', options));
 app.use('/files', serverIndex('pub_html/files', {'icons': true}));
 
-app.get('/users-api', {
-    // serve users as json
+app.get('/', function(req,res){
+    res.sendFile(path.join(__dirname, 'form.html'));
+});
 
+app.get('/users-api', function(req,res,next){
+    // serve users as json
+    res.json(users);
+});
+
+app.post('/users-api', function(req,res,next){
+    console.log(req.body);
+    users.push(req.body);
+    res.json(users);
 });
 
 http.createServer(app).listen(port);
