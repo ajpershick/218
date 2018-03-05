@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+/* These are styles for all screen sizes  */
+
+/* Flex Layout Styles */
+
+header {
+	background-color: #e6e6e6;
+	padding-bottom: 1em;
+}
+
+body {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	height: 100%;
+}
+
+#main {
+	order: 1;
+}
+
+#sheet {
+	order: 2;
+}
+
+footer {
+	order: 3;
+	text-align: center;
+}
+
+section img {
+	height: auto;
+}
+
+/* header styles */
+
+
+/* nav List styles  */
+
+
+/* Footer styles */

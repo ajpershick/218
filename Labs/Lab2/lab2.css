@@ -1,0 +1,8 @@
+@font-face {
+ font-family: 'catfish';
+ src: url("RecklessCatfish.otf") format("opentype");
+}
+
+h1 {
+  font-family: "catfish";
+}

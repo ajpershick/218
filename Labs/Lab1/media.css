@@ -1,0 +1,38 @@
+@media only screen and (max-width: 480px) {
+/* styles for only mobile devices */
+	img {
+		width: 100vw;
+	}
+}
+@media only screen and (min-width: 481px) {
+/* styles for larger devices – greater than 481px in width */
+
+	nav {
+		background-color: #d9d9d9;
+		margin-top: 2em;
+	}
+	ul li {
+		display: inline;
+		margin-left: 2em;
+		margin-right: 2em;
+	}
+
+	ul li a {
+		color: #800000;
+		font-size: 2em;
+		text-decoration: none;
+	}
+
+	img .size1 {
+		width: 100vw;
+	}
+
+	img .size2 {
+		width: 60vw;
+		float: left;
+	}
+
+	img .size3 {
+		width: 100vw!important;
+	}
+}
