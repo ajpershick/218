@@ -9,6 +9,11 @@ const options = {
     index: "index.html"
 };
 
+app.use('/', function(req,res,next){
+    console.log(req.method, 'request:', req.url, JSON.stringify(req.body));
+    next();
+});
+
 app.use('/', express.static('./pub_html', options));
 
 app.listen(port, function () {
