@@ -2,21 +2,21 @@
 <html>
 <head>
     <title>My first Vue app</title>
-    <script src="https://unpkg.com/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-<div id="app">
-    {{ message }}
-</div>
+    <h1>Admin login</h1>
 
-<script>
-    const app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello Vue!'
-        }
-    })
-</script>
+    <div id="login">
+        <p>{{ username }}</p>
+        <p>{{ password }}</p>
+        <label>Username</label>
+        <input v-model="username">
+        <label>Password</label>
+        <input v-model="password">
+
+    </div>
+
+<script src="login.js" ></script>
 </body>
 </html>
