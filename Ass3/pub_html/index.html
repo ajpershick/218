@@ -35,18 +35,18 @@
                     </span>
                     </div>
                     <br>
-                    <a class="button is-link">Login</a>
+                    <button class="button is-link" v-on:click="showLanding = !showLanding">Login</button>
                 </div>
             </div>
             <br>
-            <a class="button is-dark">Check-in</a>
+            <button class="button is-dark">Check-in</button>
             <br>
             <p>Username is: {{ username }}</p>
             <p>Password is: {{ password }}</p>
         </div>
     </section>
 
-    <section class="section" id="landing">
+    <section class="section" id="landing" v-if="showLanding">
         <div class="container">
             <h1 class="title is-1 is-centered">ADMIN LANDING</h1>
             <div class="card">
@@ -60,10 +60,10 @@
                         </span>
                         <br>
                         <br>
-                        <a class="button is-success">Start Check-in</a>
+                        <button class="button is-success">Start Check-in</button>
                         <br>
                         <br>
-                        <a class="button is-info">Check-in History</a>
+                        <button class="button is-info">Check-in History</button>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     <div class="control has-icons-left has-icons-right">
                         <input class="input is-primary" type="text" placeholder="String here" value="string" v-model="string">
                         <span class="icon is-small is-left">
-                        <!--<i class="fas fa-user"></i>-->
+                        <i class="fas fa-pencil"></i>
                         </span>
                         <span class="icon is-small is-right">
                           <i class="fas fa-check"></i>
