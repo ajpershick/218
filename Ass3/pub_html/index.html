@@ -12,7 +12,7 @@
 <body>
     <section class="section" id="login">
         <div class="container">
-            <h1 class="title is-1 is-centered">Admin LogIn</h1>
+            <h1 class="title is-1 is-centered">ADMIN LOGIN</h1>
             <div class="card">
                 <div class="field card-content">
 
@@ -25,7 +25,6 @@
                         <span class="icon is-small is-right">
                           <i class="fas fa-check"></i>
                         </span>
-                        <p class="help is-success">This username is available</p>
                     </div>
 
                     <label class="label">Password</label>
@@ -35,12 +34,104 @@
                     <i class="fas fa-key"></i>
                     </span>
                     </div>
+                    <br>
+                    <a class="button is-link">Login</a>
                 </div>
             </div>
+            <br>
+            <a class="button is-dark">Check-in</a>
+            <br>
             <p>Username is: {{ username }}</p>
             <p>Password is: {{ password }}</p>
         </div>
     </section>
+
+    <section class="section" id="landing">
+        <div class="container">
+            <h1 class="title is-1 is-centered">ADMIN LANDING</h1>
+            <div class="card">
+                <div class="field card-content">
+
+                    <label class="label">Check-in ID</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-primary" type="text" placeholder="Check-in ID here" value="checkin" v-model="checkin">
+                        <span class="icon is-small is-left">
+                         <i class="fas fa-id-card"></i>
+                        </span>
+                        <br>
+                        <br>
+                        <a class="button is-success">Start Check-in</a>
+                        <br>
+                        <br>
+                        <a class="button is-info">Check-in History</a>
+                    </div>
+                </div>
+            </div>
+            <p>Checkin ID is: {{ checkin }}</p>
+        </div>
+    </section>
+
+    <section class="section" id="checking">
+        <div class="container">
+            <h1 class="title is-1 is-centered">CHECKING IN</h1>
+            <div class="card">
+                <div class="field card-content">
+
+                    <label class="label">{{ checkin }}</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <br>
+                        <br>
+                        <a class="button is-danger">Stop Check-in</a>
+                    </div>
+                </div>
+            </div>
+            <p>Checkin ID is: {{ checkin }}</p>
+        </div>
+    </section>
+
+    <section class="section" id="check-in">
+        <div class="container">
+            <h1 class="title is-1 is-centered">CHECK-IN</h1>
+            <div class="card">
+                <div class="field card-content">
+
+                    <label class="label">Check-in String</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-primary" type="text" placeholder="String here" value="string" v-model="string">
+                        <span class="icon is-small is-left">
+                        <!--<i class="fas fa-user"></i>-->
+                        </span>
+                        <span class="icon is-small is-right">
+                          <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+
+                    <label class="label">Name</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-primary" type="text" placeholder="Full name here" value="name" v-model="name">
+                        <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                    </span>
+                    </div>
+
+                    <label class="label">User ID</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-primary" type="text" placeholder="Student number here" value="id" v-model="id">
+                        <span class="icon is-small is-left">
+                    <i class="fas fa-id-card"></i>
+                    </span>
+                    </div>
+                    <br>
+                    <a class="button is-dark">Check-in</a>
+                    <br>
+                </div>
+            </div>
+            <p>String is: {{ string }}</p>
+            <p>Name is: {{ name }}</p>
+            <p>ID is: {{ id }}</p>
+        </div>
+    </section>
+
 <script src="login.js" ></script>
 </body>
 </html>
