@@ -33,9 +33,9 @@ const app = new Vue({
             })
                 .then(function (response) {
                     console.log('Check-in is active now');
-                    app.activeCheckin = true;
+                    app.activeCheckIn = true;
                     app.show = 'checking';
-                    alert('Check-ins are now active')
+                    alert('Check-ins are now active');
                 })
                 .catch(function (error) {
                     console.log(error)
@@ -43,7 +43,6 @@ const app = new Vue({
         },
 
         stopChecking: function(){
-            console.log('Check-in is active now');
             app.activeCheckIn = false;
             app.show = 'checked-in';
             alert('Check-ins are now disabled');
