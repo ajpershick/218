@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   <link rel="stylesheet" href="./style.css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/vee-validate.js"></script>
+
 </head>
 <body>
 <div id="app">
@@ -40,7 +43,7 @@
             </div>
         </div>
         <br>
-        <button class="button is-dark">Check-in</button>
+        <button class="button is-dark" v-on:click="goToCheckIn()">Check-in</button>
         <br>
         <p>Username is: {{ username }}</p>
         <p>Password is: {{ password }}</p>
@@ -55,20 +58,20 @@
 
                   <label class="label">Check-in ID</label>
                   <div class="control has-icons-left has-icons-right">
-                      <input class="input is-primary" type="text" placeholder="Check-in ID here" v-model="checkin">
+                      <input class="input is-primary" type="text" placeholder="Check-in ID here" v-model="checkIn">
                       <span class="icon is-small is-left">
                        <i class="fas fa-id-card"></i>
                       </span>
                       <br>
                       <br>
-                      <button class="button is-success">Start Check-in</button>
+                      <button class="button is-success" v-on:click="Checking()">Start Check-in</button>
                       <br>
                       <br>
-                      <button class="button is-info">Check-in History</button>
+                      <button class="button is-info" v-on:click="goToHistory()">View History</button>
                   </div>
               </div>
           </div>
-          <p>Checkin ID is: {{ checkin }}</p>
+          <p>Checkin ID is: {{ checkIn }}</p>
       </div>
   </section>
 
@@ -78,15 +81,58 @@
           <div class="card">
               <div class="field card-content">
 
-                  <label class="label">{{ checkin }}</label>
+                  <label class="label">{{ checkIn }}</label>
                   <div class="control has-icons-left has-icons-right">
                       <br>
                       <br>
-                      <a class="button is-danger">Stop Check-in</a>
+                      <button class="button is-danger" v-on:click="stopChecking()">Stop Check-in</button>
+                      <br>
+                      <br>
+                      <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
                   </div>
               </div>
           </div>
-          <p>Checkin ID is: {{ checkin }}</p>
+          <p>Checkin ID is: {{ checkIn }}</p>
+      </div>
+  </section>
+
+    <section class="section" v-if="show == 'checked-in'">
+      <div class="container">
+          <h1 class="title is-1 is-centered">CHECKED IN</h1>
+          <div class="card">
+              <div class="field card-content">
+
+                  <label class="label">{{ checkIn }}</label>
+                  <div class="control has-icons-left has-icons-right">
+                      <p>Checked in users for {{ checkIn }}:</p>
+                      <br>
+                      <br>
+                      <button class="button is-danger" v-on:click="goToLogIn()">Back to Log-in page</button>
+                  </div>
+              </div>
+          </div>
+
+          <p></p>
+      </div>
+  </section>
+
+    <section class="section" v-if="show == 'history'">
+      <div class="container">
+          <h1 class="title is-1 is-centered">Check-in History</h1>
+          <div class="card">
+              <div class="field card-content">
+
+                  <label class="label">{{ checkIn }}</label>
+                  <div class="control has-icons-left has-icons-right">
+                      <p>All users that checked in to {{ checkIn }}:</p>
+                      <br>
+                      <br>
+                      <button class="button is-danger" v-on:click="goToLogIn()">Back to Log-in page</button>
+                  </div>
+              </div>
+          </div>
+
+          <p></p>
       </div>
   </section>
 
@@ -123,8 +169,10 @@
                 </span>
                 </div>
                 <br>
-                <a class="button is-dark">Check-in</a>
+                <button class="button is-primary" v-on:click="CheckIn()">Check-in</button>
                 <br>
+                <br>
+                <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
             </div>
         </div>
         <p>String is: {{ string }}</p>
@@ -132,6 +180,26 @@
         <p>ID is: {{ id }}</p>
     </div>
   </section>
+
+    <section class="section" v-if="show == 'thanks'">
+        <div class="container">
+            <h1 class="title is-1 is-centered">Thanks for checking in with us!</h1>
+            <div class="card">
+                <div class="field card-content">
+
+                    <label class="label">{{ checkIn }}</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <p>You just checked in for {{ checkIn }}:</p>
+                        <br>
+                        <br>
+                        <button class="button is-danger" v-on:click="goToLogIn()">Back to Log-in page</button>
+                    </div>
+                </div>
+            </div>
+
+            <p></p>
+        </div>
+    </section>
 </div>
 
 <script src="login.js" ></script>
