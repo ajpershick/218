@@ -3,6 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
   <title>My first Vue app</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
@@ -40,13 +47,14 @@
                 </div>
                 <br>
                 <button class="button is-link" v-on:click="logIn()">Login</button>
+								<br>
+							 	<br>
+								<button class="button is-dark" v-on:click="goToCheckIn()">Check-in</button>
             </div>
         </div>
         <br>
-        <button class="button is-dark" v-on:click="goToCheckIn()">Check-in</button>
+
         <br>
-        <p>Username is: {{ username }}</p>
-        <p>Password is: {{ password }}</p>
     </div>
   </section>
 
@@ -71,7 +79,6 @@
                   </div>
               </div>
           </div>
-          <p>Checkin ID is: {{ checkIn }}</p>
       </div>
   </section>
 
@@ -92,7 +99,6 @@
                   </div>
               </div>
           </div>
-          <p>Checkin ID is: {{ checkIn }}</p>
       </div>
   </section>
 
@@ -104,7 +110,22 @@
 
                   <label class="label">{{ checkIn }}</label>
                   <div class="control has-icons-left has-icons-right">
-                      <p>Checked in users for {{ attendees }}:</p>
+										<h3>Check in history for: {{ checkIn }}</h3>
+										<br>
+										<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+											<thead>
+											<tr>
+												<th>Name</th>
+												<th>User ID</th>
+											</tr>
+											</thead>
+											<tbody v-for="attendees in attendees">
+											<tr>
+												<td> {{ attendees.name }} </td>
+												<td> {{ attendees.userID }} </td>
+											</tr>
+											</tbody>
+										</table>
                       <br>
                       <br>
                       <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
@@ -122,9 +143,27 @@
 
                   <label class="label">{{ checkIn }}</label>
                   <div class="control has-icons-left has-icons-right">
-                      <p>All users that checked in to {{ checkIn }}:</p>
+                      <h3>All users that checked in to {{ checkIn }}:</h3>
                       <br>
-                      <br>
+											<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+												<thead>
+												<tr>
+													<th>Name</th>
+													<th>User ID</th>
+													<th>Event ID</th>
+													<th>Event Name</th>
+												</tr>
+												</thead>
+												<tbody v-for="history in history">
+												<tr>
+													<td>{{ history.name }}</td>
+													<td>{{ history.userID }}</td>
+													<td>{{ history.eventID }}</td>
+													<td>{{ history.string }}</td>
+												</tr>
+												</tbody>
+											</table classtable>
+												<br>
                       <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
                   </div>
               </div>
@@ -159,7 +198,7 @@
 
                 <label class="label">User ID</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-primary" type="text" placeholder="Student number here" v-model="id">
+                    <input class="input is-primary" type="text" placeholder="Student number here" v-model="userID">
                     <span class="icon is-small is-left">
                 <i class="fas fa-id-card"></i>
                 </span>
@@ -171,9 +210,6 @@
                 <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
             </div>
         </div>
-        <p>String is: {{ string }}</p>
-        <p>Name is: {{ name }}</p>
-        <p>ID is: {{ id }}</p>
     </div>
   </section>
 

@@ -1,13 +1,15 @@
+"use strict";
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 5000;
+const port = 23734;
 let adminUsername = 'admin';
 let adminPassword = '1234';
 let checkIns = [];
 let eventID = 0;
 let eventStatus = false;
 let checkIn_ID = '';
+let currEvent = '';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +43,7 @@ const options = {
 
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost/Ass3DB");
+mongoose.connect('mongodb://apershic:z0dbkyr9@127.0.0.1:27017/cmpt218_apershic?authSource=admin');
 let db = mongoose.connection;
 
 //db.on('error', function(){});
@@ -83,7 +85,7 @@ Session.find(function (err, sessions) {
 let checkInSchema = new Schema({
   string: String,
   name: String,
-  ID: String,
+  userID: String,
   eventID: String,
 });
 
@@ -122,21 +124,25 @@ app.post('/stopEvent', function(req, res){
 app.post('/checkIns', function(req, res){
   // checkIns.push(req.body);
   // console.log(checkIns);
-  let newCheckIn = new checkIn({string: req.body.string, name: req.body.name, ID: req.body.ID, eventID: eventID });
+  let newCheckIn = new checkIn({string: req.body.string, name: req.body.name, userID: req.body.userID, eventID: eventID });
   console.log(newCheckIn);
   newCheckIn.save();
   res.end();
 });
 
 app.get('/eventAttendees', function(req, res){
-  console.log('test');
-  currEvent = checkIn.find({eventID: eventID}, function (err, attendees) {
+  checkIn.find({eventID: eventID}, function (err, attendees) {
     if (err) return console.error(err);
-    console.log(attendees);
+    res.send(attendees);
   });
-  console.log(currEvent);
-  res.send(currEvent);
-  res.end();
+});
+
+app.post('/history', function(req, res){
+  checkIn.find({string: req.body.checkIn_ID}, function (err, history) {
+    if (err) return console.error(err);
+    console.log(history);
+    res.send(history);
+  });
 });
 
 app.listen(port, function () {

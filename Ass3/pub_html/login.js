@@ -1,4 +1,3 @@
-Vue.use(VeeValidate); // good to go.
 getEventStatus();
 const app = new Vue({
     el: '#app',
@@ -8,10 +7,11 @@ const app = new Vue({
         checkIn: '',
         string: '',
         name: '',
-        id: '',
+        userID: '',
         show: 'login',
         activeCheckIn: false,
-        attendees: '',
+        attendees: [],
+        history: [],
     },
     methods: {
       logIn: function () {
@@ -79,7 +79,7 @@ const app = new Vue({
           axios.post('/checkIns', {
             string: this.string,
             name: this.name,
-            ID: this.id,
+            userID: this.userID,
           })
             .then(function (response) {
               if (app.activeCheckIn) {
@@ -105,6 +105,7 @@ const app = new Vue({
       },
 
       goToHistory: function () {
+          renderHistory();
         app.show = 'history';
       },
     }
@@ -132,12 +133,22 @@ function getEventStatus(){
 }
 
 function renderAttendees () {
-    console.log('test1');
   axios.get('/eventAttendees', {
   })
     .then(function (response) {
-        console.log('test2');
       app.attendees = response.data;
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
+function renderHistory () {
+  axios.post('/history', {
+      checkIn_ID: app.checkIn
+  })
+    .then(function (response) {
+      app.history = response.data;
     })
     .catch(function (error) {
       console.log(error)
