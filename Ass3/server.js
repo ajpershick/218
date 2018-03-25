@@ -146,7 +146,7 @@ app.post('/history', function(req, res){
 });
 
 app.listen(port, function () {
-  console.log('Server listening on port 5000!');
+  console.log('Server listening on port 23734!');
 });
 
 function logInValidation(username, password){
