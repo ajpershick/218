@@ -64,7 +64,7 @@
                       </span>
                       <br>
                       <br>
-                      <button class="button is-success" v-on:click="Checking()">Start Check-in</button>
+                      <button class="button is-success" v-on:click="eventStart()">Start Check-in</button>
                       <br>
                       <br>
                       <button class="button is-info" v-on:click="goToHistory()">View History</button>
@@ -75,7 +75,7 @@
       </div>
   </section>
 
-  <section class="section" v-if="show == 'checking'">
+  <section class="section" v-if="show == 'eventStart'">
       <div class="container">
           <h1 class="title is-1 is-centered">CHECKING IN</h1>
           <div class="card">
@@ -85,7 +85,7 @@
                   <div class="control has-icons-left has-icons-right">
                       <br>
                       <br>
-                      <button class="button is-danger" v-on:click="stopChecking()">Stop Check-in</button>
+                      <button class="button is-danger" v-on:click="stopEvent()" >Stop Check-in</button>
                       <br>
                       <br>
                       <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
@@ -104,15 +104,13 @@
 
                   <label class="label">{{ checkIn }}</label>
                   <div class="control has-icons-left has-icons-right">
-                      <p>Checked in users for {{ checkIn }}:</p>
+                      <p>Checked in users for {{ attendees }}:</p>
                       <br>
                       <br>
-                      <button class="button is-danger" v-on:click="goToLogIn()">Back to Log-in page</button>
+                      <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
                   </div>
               </div>
           </div>
-
-          <p></p>
       </div>
   </section>
 
@@ -127,12 +125,10 @@
                       <p>All users that checked in to {{ checkIn }}:</p>
                       <br>
                       <br>
-                      <button class="button is-danger" v-on:click="goToLogIn()">Back to Log-in page</button>
+                      <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
                   </div>
               </div>
           </div>
-
-          <p></p>
       </div>
   </section>
 
@@ -192,12 +188,10 @@
                         <p>You just checked in for {{ checkIn }}:</p>
                         <br>
                         <br>
-                        <button class="button is-danger" v-on:click="goToLogIn()">Back to Log-in page</button>
+                        <button class="button is-dark" v-on:click="goToLogIn()">Back to Log-in page</button>
                     </div>
                 </div>
             </div>
-
-            <p></p>
         </div>
     </section>
 </div>

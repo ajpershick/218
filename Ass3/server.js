@@ -5,6 +5,9 @@ const port = 5000;
 let adminUsername = 'admin';
 let adminPassword = '1234';
 let checkIns = [];
+let eventID = 0;
+let eventStatus = false;
+let checkIn_ID = '';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -75,8 +78,16 @@ let session = new Session({active: false});
 
 Session.find(function (err, sessions) {
   if (err) return console.error(err);
-  console.log(sessions);
 });
+
+let checkInSchema = new Schema({
+  string: String,
+  name: String,
+  ID: String,
+  eventID: String,
+});
+
+let checkIn = mongoose.model('checkIns', checkInSchema);
 
 app.use('/', function(req,res,next){
   console.log(req.method, 'request:', req.url, (req.body));
@@ -85,16 +96,46 @@ app.use('/', function(req,res,next){
 
 app.use('/', express.static('./pub_html', options));
 
+app.get('/eventStatus', function(req, res){
+  console.log(eventStatus);
+  res.send(eventStatus);
+  res.end()
+});
+
 app.post('/login', function(req, res){
   logInValidation();
   res.end();
 });
 
-app.post('/checking', function(req, res){
+app.post('/eventStart', function(req, res){
+  checkIn_ID = req.body.checkIn_ID;
+  eventStatus = true;
+  eventID++;
+  res.end();
+});
+
+app.post('/stopEvent', function(req, res){
+  eventStatus = false;
   res.end();
 });
 
 app.post('/checkIns', function(req, res){
+  // checkIns.push(req.body);
+  // console.log(checkIns);
+  let newCheckIn = new checkIn({string: req.body.string, name: req.body.name, ID: req.body.ID, eventID: eventID });
+  console.log(newCheckIn);
+  newCheckIn.save();
+  res.end();
+});
+
+app.get('/eventAttendees', function(req, res){
+  console.log('test');
+  currEvent = checkIn.find({eventID: eventID}, function (err, attendees) {
+    if (err) return console.error(err);
+    console.log(attendees);
+  });
+  console.log(currEvent);
+  res.send(currEvent);
   res.end();
 });
 
