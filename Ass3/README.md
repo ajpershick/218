@@ -1,6 +1,5 @@
 # CMPT218 Assignment 3
-
-Everything should be good to go after running 
+A check in application created for assignment 3 of Bobby Chan's CMPT 218, Intro to Web Developement, Spring 2018.
 
 If possible, clear the database before using the app. There is some garbage data in the database.
 
