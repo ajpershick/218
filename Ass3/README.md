@@ -1,10 +1,23 @@
-########    README  #########
+# CMPT218 Assignment 3
 
-Everything should be good to go after running `npm install`
-If possible, clear the database before using the app.
-There is some garbage data in the database.
+Everything should be good to go after running 
 
-Usability features:
+If possible, clear the database before using the app. There is some garbage data in the database.
+
+## Installation
+To install dependencies run:
+```
+npm install
+```
+
+## Running
+To run the project run:
+```
+node server.js
+```
+and navigate to http://localhost:23734/
+
+## Usability features
 
     - Favicon icon on webpage
     - Bulma CSS framework (beautifully designed forms/tables)
