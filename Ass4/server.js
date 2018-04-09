@@ -15,23 +15,6 @@ const options = {
   index: "index.html"
 };
 
-// const MongoClient = require('mongodb').MongoClient;
-//
-// const url = "mongodb://localhost";
-//
-// MongoClient.connect(url, function(err, client){
-//     if (err) console.log(err);
-//     //console.log('connected');
-//     let database = client.db('Ass3DB'); // use
-//     let collection = database.collection('documents'); // db.documents
-//     collection.insertMany([{a:1,b:2},{a:3,b:4}], function(err, result){
-//         collection.find().forEach(function(mydoc){
-//             console.log(mydoc);
-//         });
-//     });
-// });
-
-
 /////// Connecting to Mongoose ////////
 ///////////////////////////////////////
 
