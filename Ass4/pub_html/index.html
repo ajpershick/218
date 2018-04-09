@@ -22,7 +22,7 @@
 <body>
 <div id="app">
 
-	<nav class="navbar is-transparent">
+	<nav class="navbar is-link">
 		<div class="navbar-brand">
 			<a class="navbar-item">
 				<img src="./android-chrome-384x384.png" alt="Logo" width="50" height="50">
@@ -36,9 +36,6 @@
 
 		<div id="navbarExampleTransparentExample" class="navbar-menu">
 			<div class="navbar-start">
-				<a class="navbar-item" v-on:click="logOut()">
-					Log Out
-				</a>
 				<!--<div class="navbar-item has-dropdown is-hoverable">-->
 					<!--<a class="navbar-link" href="/documentation/overview/start/">-->
 						<!--Docs-->
@@ -71,6 +68,9 @@
 			</div>
 
 			<div class="navbar-end">
+				<a class="navbar-item" v-on:click="logOut()">
+					Log Out
+				</a>
 				<!--<div class="navbar-item">-->
 					<!--<div class="field is-grouped">-->
 						<!--<p class="control">-->
@@ -102,27 +102,28 @@
         <h1 class="title is-1 is-centered">LOGIN</h1>
         <div class="card">
             <div class="field card-content">
-                <label class="label">Username</label>
-                <div class="control has-icons-left has-icons-right">
-									<input class="input is-primary" type="text" placeholder="Username here" v-model="username">
-									<span class="icon is-small is-left">
-										<i class="fas fa-user"></i>
-									</span>
-									<span class="icon is-small is-right">
-										<i class="fas fa-check"></i>
-									</span>
-                </div>
-                <label class="label">Password</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input is-primary" type="text" placeholder="Password here" v-model="password">
-                    <span class="icon is-small is-left">
-                <i class="fas fa-key"></i>
-                </span>
-                </div>
-                <br>
-                <button class="button is-link" v-on:click="logIn()">Login</button>
-								<br>
-							 	<br>
+							<label class="label">Username</label>
+							<div class="control has-icons-left has-icons-right">
+								<input class="input is-primary" type="text" placeholder="Username here" v-model="username">
+								<span class="icon is-small is-left">
+									<i class="fas fa-user"></i>
+								</span>
+								<span class="icon is-small is-right">
+									<i class="fas fa-check"></i>
+								</span>
+							</div>
+							<br>
+							<label class="label">Password</label>
+							<div class="control has-icons-left has-icons-right">
+								<input class="input is-primary" type="text" placeholder="Password here" v-model="password">
+								<span class="icon is-small is-left">
+									<i class="fas fa-key"></i>
+								</span>
+							</div>
+							<br>
+							<button class="button is-link" v-on:click="logIn()">Login</button>
+							<br>
+							<br>
 							<button class="button is-dark" v-on:click="goToRegister()">No Account? Register here.</button>
             </div>
         </div>
@@ -146,6 +147,7 @@
 							<i class="fas fa-check"></i>
 						</span>
 					</div>
+					<br>
 					<label class="label">Password</label>
 					<div class="control has-icons-left has-icons-right">
 						<input class="input is-primary" type="text" placeholder="Password here" v-model="password">
@@ -176,6 +178,6 @@
 
 </div>
 
-<script src="login.js" ></script>
+<script src="app.js" ></script>
 </body>
 </html>

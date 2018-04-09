@@ -66,6 +66,13 @@ app.post('/register', function(req, res){
   res.end();
 });
 
+app.post('/login', function(req, res){
+  User.findOne({username: req.body.username}, function (err, users) {
+    if (err) return console.error(err);
+    res.send(users);
+  });
+});
+
 app.listen(port, function () {
   console.log('Server listening on port 23734!');
 });

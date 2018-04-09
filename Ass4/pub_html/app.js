@@ -15,8 +15,16 @@ const app = new Vue({
             password: this.password,
           })
           .then(function (response) {
-            console.log('successfully logged in');
-            app.show = 'landing'
+            alert(response.data.username);
+            if (response.data)
+            {
+              console.log('successfully logged in');
+              app.show = 'landing'
+            }
+            else {
+              alert(response.data + 'not found')
+            }
+
           })
             .catch(function (error) {
               console.log(error)
@@ -46,6 +54,7 @@ const app = new Vue({
         // Get rid of session
         app.show = 'login';
       },
+
     }
 });
 

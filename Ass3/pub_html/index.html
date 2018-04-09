@@ -59,27 +59,26 @@
   </section>
 
   <section class="section" v-if="show == 'landing'">
-      <div class="container">
-          <h1 class="title is-1 is-centered">ADMIN LANDING</h1>
-          <div class="card">
-              <div class="field card-content">
-
-                  <label class="label">Check-in ID</label>
-                  <div class="control has-icons-left has-icons-right">
-                      <input class="input is-primary" type="text" placeholder="Check-in ID here" v-model="checkIn">
-                      <span class="icon is-small is-left">
-                       <i class="fas fa-id-card"></i>
-                      </span>
-                      <br>
-                      <br>
-                      <button class="button is-success" v-on:click="eventStart()">Start Check-in</button>
-                      <br>
-                      <br>
-                      <button class="button is-info" v-on:click="goToHistory()">View History</button>
-                  </div>
-              </div>
-          </div>
-      </div>
+		<div class="container">
+			<h1 class="title is-1 is-centered">ADMIN LANDING</h1>
+			<div class="card">
+				<div class="field card-content">
+					<label class="label">Check-in ID</label>
+					<div class="control has-icons-left has-icons-right">
+						<input class="input is-primary" type="text" placeholder="Check-in ID here" v-model="checkIn">
+						<span class="icon is-small is-left">
+						 <i class="fas fa-id-card"></i>
+						</span>
+						<br>
+						<br>
+						<button class="button is-success" v-on:click="eventStart()">Start Check-in</button>
+						<br>
+						<br>
+						<button class="button is-info" v-on:click="goToHistory()">View History</button>
+					</div>
+				</div>
+			</div>
+		</div>
   </section>
 
   <section class="section" v-if="show == 'eventStart'">
