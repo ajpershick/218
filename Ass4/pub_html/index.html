@@ -21,6 +21,82 @@
 </head>
 <body>
 <div id="app">
+
+	<nav class="navbar is-transparent">
+		<div class="navbar-brand">
+			<a class="navbar-item">
+				<img src="./android-chrome-384x384.png" alt="Logo" width="50" height="50">
+			</a>
+			<div class="navbar-burger burger">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+
+		<div id="navbarExampleTransparentExample" class="navbar-menu">
+			<div class="navbar-start">
+				<a class="navbar-item" v-on:click="logOut()">
+					Log Out
+				</a>
+				<!--<div class="navbar-item has-dropdown is-hoverable">-->
+					<!--<a class="navbar-link" href="/documentation/overview/start/">-->
+						<!--Docs-->
+					<!--</a>-->
+					<!--<div class="navbar-dropdown is-boxed">-->
+						<!--<a class="navbar-item" href="/documentation/overview/start/">-->
+							<!--Overview-->
+						<!--</a>-->
+						<!--<a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">-->
+							<!--Modifiers-->
+						<!--</a>-->
+						<!--<a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">-->
+							<!--Columns-->
+						<!--</a>-->
+						<!--<a class="navbar-item" href="https://bulma.io/documentation/layout/container/">-->
+							<!--Layout-->
+						<!--</a>-->
+						<!--<a class="navbar-item" href="https://bulma.io/documentation/form/general/">-->
+							<!--Form-->
+						<!--</a>-->
+						<!--<hr class="navbar-divider">-->
+						<!--<a class="navbar-item" href="https://bulma.io/documentation/elements/box/">-->
+							<!--Elements-->
+						<!--</a>-->
+						<!--<a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">-->
+							<!--Components-->
+						<!--</a>-->
+					<!--</div>-->
+				</div>
+			</div>
+
+			<div class="navbar-end">
+				<!--<div class="navbar-item">-->
+					<!--<div class="field is-grouped">-->
+						<!--<p class="control">-->
+							<!--<a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">-->
+              <!--<span class="icon">-->
+                <!--<i class="fab fa-twitter"></i>-->
+              <!--</span>-->
+								<!--<span>-->
+                <!--Tweet-->
+              <!--</span>-->
+							<!--</a>-->
+						<!--</p>-->
+						<!--<p class="control">-->
+							<!--<a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.6.2/bulma-0.6.2.zip">-->
+              <!--<span class="icon">-->
+                <!--<i class="fas fa-download"></i>-->
+              <!--</span>-->
+								<!--<span>Download</span>-->
+							<!--</a>-->
+						<!--</p>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		</div>
+	</nav>
+
   <section class="section" v-if="show == 'login'">
     <div class="container">
         <h1 class="title is-1 is-centered">LOGIN</h1>
@@ -47,7 +123,7 @@
                 <button class="button is-link" v-on:click="logIn()">Login</button>
 								<br>
 							 	<br>
-							<button class="button is-dark" v-on:click="goToCheckIn()">No Account? Register here.</button>
+							<button class="button is-dark" v-on:click="goToRegister()">No Account? Register here.</button>
             </div>
         </div>
         <br>
@@ -57,7 +133,7 @@
 
 	<section class="section" v-if="show == 'register'">
 		<div class="container">
-			<h1 class="title is-1 is-centered">REGISTER</h1>
+			<h1 class="title is-1 is-centered">REGISTER YOUR ACCOUNT</h1>
 			<div class="card">
 				<div class="field card-content">
 					<label class="label">Username</label>
@@ -78,13 +154,23 @@
 						</span>
 					</div>
 					<br>
-					<button class="button is-link" v-on:click="logIn()">Login</button>
+					<button class="button is-link" v-on:click="register()">Create Account</button>
 					<br>
 					<br>
 				</div>
 			</div>
 			<br>
 			<br>
+		</div>
+	</section>
+
+	<section class="section" v-if="show == 'landing'">
+		<div class="container">
+			<h1 class="title is-1 is-centered">{{ username }} stats</h1>
+			<div class="card">
+				<div class="field card-content">
+				</div>
+			</div>
 		</div>
 	</section>
 

@@ -41,6 +41,13 @@ let Session = mongoose.model('session', sessionSchema);
 let session = new Session({active: false});
 // session.save();
 
+let userSchema = new Schema({
+  username: {type: String},
+  password: {type: String},
+});
+
+let User = mongoose.model('user', userSchema);
+
 app.use('/', function(req,res,next){
   console.log(req.method, 'request:', req.url, (req.body));
   next();
@@ -52,10 +59,10 @@ app.post('/login', function(req, res){
   res.end();
 });
 
-app.post('/eventStart', function(req, res){
-  checkIn_ID = req.body.checkIn_ID;
-  eventStatus = true;
-  eventID++;
+app.post('/register', function(req, res){
+  let newUser = new User({username: req.body.username, password: req.body.password});
+  console.log(newUser);
+  newUser.save();
   res.end();
 });
 

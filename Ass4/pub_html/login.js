@@ -14,20 +14,32 @@ const app = new Vue({
             username: this.username,
             password: this.password,
           })
-          a.then(function (response) {
-            console.log('success');
-            checkForm();
-            if (app.activeCheckIn) {
-              app.show = 'eventStart'
-            }
-            else {
-              app.show = 'landing'
-            }
+          .then(function (response) {
+            console.log('successfully logged in');
+            app.show = 'landing'
           })
             .catch(function (error) {
               console.log(error)
-            })
+          })
         }
+      },
+
+      goToRegister: function() {
+        app.show = 'register';
+      },
+
+      register: function() {
+        axios.post('/register', {
+          username: this.username,
+          password: this.password,
+        })
+          .then(function (response) {
+            console.log('successfully registered');
+            app.show = 'landing'
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       },
 
       logOut: function () {
