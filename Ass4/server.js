@@ -4,9 +4,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 23734;
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 
 const options = {
   dotfiles: 'ignore',
@@ -20,7 +23,7 @@ const options = {
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost');
+mongoose.connect('mongodb://localhost/Ass4');
 let db = mongoose.connection;
 
 //db.on('error', function(){});
@@ -53,11 +56,24 @@ app.use('/', function(req,res,next){
   next();
 });
 
-app.use('/', express.static('./pub_html', options));
+app.use('/', express.static('./public', options));
 
 app.post('/login', function(req, res){
-  res.end();
+  User.find({username: req.body.username}, function (err, users) {
+    if (err) return console.error(err);
+    console.log(users);
+    res.send(users);
+  });
 });
+
+app.post('/validateUser', function(req, res){
+  User.find({username: req.body.username}, function (err, users) {
+    if (err) return console.error(err);
+    console.log(users);
+    res.send(users);
+  });
+});
+
 
 app.post('/register', function(req, res){
   let newUser = new User({username: req.body.username, password: req.body.password});
@@ -66,14 +82,11 @@ app.post('/register', function(req, res){
   res.end();
 });
 
-app.post('/login', function(req, res){
-  User.findOne({username: req.body.username}, function (err, users) {
-    if (err) return console.error(err);
-    res.send(users);
-  });
+io.on('connection', function(socket){
+  console.log('A user connected!');
 });
 
-app.listen(port, function () {
+server.listen(port, function () {
   console.log('Server listening on port 23734!');
 });
 
