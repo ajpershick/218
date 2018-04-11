@@ -18,7 +18,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/vee-validate.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
-	<title>CMPT218 Assignment 4</title>
+
+	<title>Tic Tac To3</title>
 </head>
 <body>
 <div id="app">
@@ -37,6 +38,9 @@
 
 		<div id="navbarExampleTransparentExample" class="navbar-menu">
 			<div class="navbar-start">
+				<div class="navbar-item">
+					TIC TAC TO3
+				</div>
 				<!--<div class="navbar-item has-dropdown is-hoverable">-->
 					<!--<a class="navbar-link" href="/documentation/overview/start/">-->
 						<!--Docs-->
@@ -175,6 +179,68 @@
 				</div>
 			</div>
 		</div>
+	</section>
+
+	<section id="Board" class="section" v-if="show == 'game'">
+		<div class="box has-text-centered">
+		<h2 id="userHello"></h2>
+		<h3 id="turn"></h3>
+		<table class="table is-bordered">
+			<tbody>
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_000" v-on:click="tile000 = currentPlayer">{{ tile000 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_001" v-on:click="tile001 = currentPlayer">{{ tile001 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_002" v-on:click="tile002 = currentPlayer">{{ tile002 }}</button></td>
+			</tr>
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_010" v-on:click="tile010 = currentPlayer">{{ tile010 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_011" v-on:click="tile011 = currentPlayer">{{ tile011 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_012" v-on:click="tile012 = currentPlayer">{{ tile012 }}</button></td>
+			</tr>
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_020" v-on:click="tile020 = currentPlayer">{{ tile020 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_021" v-on:click="tile021 = currentPlayer">{{ tile021 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_022" v-on:click="tile022 = currentPlayer">{{ tile022 }}</button></td>
+			</tr>
+			</tbody>
+		</table>
+
+			<table class="table is-bordered">
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_100" v-on:click="tile100 = currentPlayer" >{{ tile100 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_101" v-on:click="tile101 = currentPlayer">{{ tile101 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_102" v-on:click="tile102 = currentPlayer">{{ tile102 }}</button></td>
+			</tr>
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_110" v-on:click="tile110 = currentPlayer">{{ tile110 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_111" v-on:click="tile111 = currentPlayer">{{ tile111 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_112" v-on:click="tile112 = currentPlayer">{{ tile112 }}</button></td>
+			</tr>
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_120" v-on:click="tile120 = currentPlayer">{{ tile120 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_121" v-on:click="tile121 = currentPlayer">{{ tile121 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_122" v-on:click="tile122 = currentPlayer">{{ tile122 }}</button></td>
+			</tr>
+		</table>
+
+			<table class="table is-bordered">
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_200" v-on:click="tile200 = currentPlayer">{{ tile200 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_201" v-on:click="tile201 = currentPlayer">{{ tile201 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_202" v-on:click="tile202 = currentPlayer">{{ tile202 }}</button></td>
+			</tr>
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_210" v-on:click="tile210 = currentPlayer">{{ tile210 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_211" v-on:click="tile211 = currentPlayer">{{ tile211 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_212" v-on:click="tile212 = currentPlayer">{{ tile212 }}</button></td>
+			</tr>
+			<tr>
+				<td><button class="button tile is-dark is-centered" id="button_220" v-on:click="tile220 = currentPlayer">{{ tile220 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_221" v-on:click="tile221 = currentPlayer">{{ tile221 }}</button></td>
+				<td><button class="button tile is-dark is-centered" id="button_222" v-on:click="tile222 = currentPlayer">{{ tile222 }}</button></td>
+			</tr>
+		</table>
+	</div>
 	</section>
 
 </div>

@@ -4,8 +4,46 @@ const app = new Vue({
       username: '',
       password: '',
       userID: '',
-      show: 'login',
+      show: 'game',
+      currentMove: 'X',
       currentUser: [],
+      currentPlayer: 'X',
+
+      tile000: '',
+      tile001: '',
+      tile002: '',
+
+      tile010: '',
+      tile011: '',
+      tile012: '',
+
+      tile020: '',
+      tile021: '',
+      tile022: '',
+
+      tile100: '',
+      tile101: '',
+      tile102: '',
+
+      tile110: '',
+      tile111: '',
+      tile112: '',
+
+      tile120: '',
+      tile121: '',
+      tile122: '',
+
+      tile200: '',
+      tile201: '',
+      tile202: '',
+
+      tile210: '',
+      tile211: '',
+      tile212: '',
+
+      tile220: '',
+      tile221: '',
+      tile222: '',
     },
     methods: {
       logIn: function () {
@@ -40,7 +78,7 @@ const app = new Vue({
       },
 
       register: function() {
-        var validated = 0;
+        let validated = 0;
         validateUser().then(function (response) {
           if (response.data[0] !== undefined){
             if (response.data[0].username === app.username) {
@@ -75,6 +113,10 @@ const app = new Vue({
         // Get rid of session
         app.show = 'login';
       },
+
+      makeMove: function (tile) {
+        app.tile = 'X'
+      }
 
     }
 });

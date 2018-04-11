@@ -74,7 +74,6 @@ app.post('/validateUser', function(req, res){
   });
 });
 
-
 app.post('/register', function(req, res){
   let newUser = new User({username: req.body.username, password: req.body.password});
   console.log(newUser);
@@ -84,6 +83,9 @@ app.post('/register', function(req, res){
 
 io.on('connection', function(socket){
   console.log('A user connected!');
+  socket.on('move', function(data){
+    socket.broadcast.emit('move', data);
+  });
 });
 
 server.listen(port, function () {
