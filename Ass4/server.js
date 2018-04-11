@@ -81,14 +81,50 @@ app.post('/register', function(req, res){
   res.end();
 });
 
+let numPlayers = 0;
+let player = {};
 io.on('connection', function(socket){
-  console.log('A user connected!');
-  socket.on('move', function(data){
-    socket.broadcast.emit('move', data);
+  socket.on('new player', function(){
+    console.log(numPlayers);
+    if (numPlayers ===  0){
+      player[socket.id] = {
+        username: socket.username,
+        type: 'X'
+      };
+      numPlayers++;
+      console.log('Player X connected');
+      io.emit('message', 'Player X connected');
+      socket.emit('player1', player[socket.id]);
+    }
+    else if (numPlayers === 1){
+      player[socket.id] = {
+        username: socket.username,
+        type: 'O'
+      };
+      numPlayers++;
+      console.log('Player O connected');
+      io.emit('message', 'Player O connected');
+      socket.emit('player2', player[socket.id]);
+    }
+    else if (numPlayers >= 2){
+      console.log('Room is full. Wait your turn.');
+      socket.emit('too many players', 'Room is full. Wait your turn.');
+    }
+  });
+
+  socket.on('move', function(data, currentMove){
+    io.emit('move', data, currentMove);
+  });
+
+  socket.on('disconnect', function(){
+    console.log('disconnected');
+    numPlayers = 0;
   });
 });
+
 
 server.listen(port, function () {
   console.log('Server listening on port 23734!');
 });
+
 

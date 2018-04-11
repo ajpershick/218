@@ -5,7 +5,7 @@ const app = new Vue({
       password: '',
       userID: '',
       show: 'game',
-      currentMove: 'X',
+      currentMove: 'O',
       currentUser: [],
       currentPlayer: 'X',
 

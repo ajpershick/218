@@ -1,27 +1,58 @@
 const socket = io();
-socket.on('message', function(data) {
-  console.log(data);
+socket.emit('new player');
+let tileList = document.getElementsByClassName('tile');
+let i;
+for ( i = 0; i < tileList.length; i++ ){
+  tileList[i].addEventListener('click', playTurn)
+}
+
+socket.on('message', function(msg){
+  alert(msg);
 });
 
-socket.emit('new player');
-$(window).click(function() {
+socket.on('player1', function(player){
+  console.log("player is type: " + player.type);
+  app.currentPlayer = player.type;
+});
+
+socket.on('player2', function(player){
+  console.log("player is type: " + player.type);
+  app.currentPlayer = player.type;
+});
+
+socket.on('too many players', function(msg){
+  alert(msg);
+  app.show = 'login';
+});
+
+function playTurn() {
   let tiles = [
     app.tile000, app.tile001, app.tile002,
     app.tile010, app.tile011, app.tile012,
     app.tile020, app.tile021, app.tile022,
+
     app.tile100, app.tile101, app.tile102,
     app.tile110, app.tile111, app.tile112,
     app.tile120, app.tile121, app.tile122,
+
     app.tile200, app.tile201, app.tile202,
     app.tile210, app.tile211, app.tile212,
     app.tile220, app.tile221, app.tile222,
   ];
-  socket.emit('move', tiles );
+  console.log(app.currentMove);
+  if (app.currentMove === 'X'){
+    app.currentMove = 'O';
+  }
+  else if (app.currentMove === 'O'){
+    app.currentMove = 'X';
+  }
+  console.log(app.currentMove);
+  socket.emit('move', tiles, app.currentMove);
 
   checkWin();
-});
+}
 
-socket.on('move', function(data){
+socket.on('move', function(data, currentMove){
   app.tile000 = data[0];
   app.tile001 = data[1];
   app.tile002 = data[2];
@@ -49,6 +80,12 @@ socket.on('move', function(data){
   app.tile220 = data[24];
   app.tile221 = data[25];
   app.tile222 = data[26];
+  console.log(currentMove);
+  app.currentMove = currentMove;
+});
+
+socket.on('player left', function(data){
+    console.log(data);
 });
 
 function checkWin(){
