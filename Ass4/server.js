@@ -23,7 +23,7 @@ const options = {
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/Ass4');
+mongoose.connect('mongodb://apershic:z0dbkyr9@127.0.0.1:27017/cmpt218_apershic?authSource=admin');
 let db = mongoose.connection;
 
 //db.on('error', function(){});

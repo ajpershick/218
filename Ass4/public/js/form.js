@@ -4,7 +4,7 @@ const app = new Vue({
       username: '',
       password: '',
       userID: '',
-      show: 'game',
+      show: 'login',
       currentMove: 'O',
       currentUser: [],
       currentPlayer: 'X',
@@ -75,6 +75,10 @@ const app = new Vue({
 
       goToRegister: function() {
         app.show = 'register';
+      },
+
+      goToGame: function() {
+        app.show = 'game';
       },
 
       register: function() {

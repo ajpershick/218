@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 23734;
+const port = 5000;
 let adminUsername = 'admin';
 let adminPassword = '1234';
 let checkIns = [];
@@ -43,7 +43,7 @@ const options = {
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://apershic:z0dbkyr9@127.0.0.1:27017/cmpt218_apershic?authSource=admin');
+mongoose.connect('mongodb://localhost/Ass3DB');
 let db = mongoose.connection;
 
 //db.on('error', function(){});
